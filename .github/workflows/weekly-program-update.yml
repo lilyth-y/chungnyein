@@ -104,7 +104,15 @@ jobs:
           "
 
       - name: Show summary
-        run: cat .github/weekly-update-summary.md 2>/dev/null || echo "No summary file was produced."
+        run: |
+          if [ ! -f .github/weekly-update-summary.md ]; then
+            printf '%s\n' \
+              "## 주간 프로그램 정보 업데이트" \
+              "" \
+              "- 에이전트가 요약을 남기지 않았습니다. \`src/data\` diff를 직접 검토하세요." \
+              > .github/weekly-update-summary.md
+          fi
+          cat .github/weekly-update-summary.md
 
       - name: Check for changes
         id: diff
@@ -121,10 +129,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           branch="weekly-update/$(date +%Y-%m-%d)"
-          git checkout -b "$branch"
-          git add src/data
+          git checkout -B "$branch"
+          git add src/data .github/weekly-update-summary.md
           git commit -m "chore: weekly program data review $(date +%Y-%m-%d)"
-          git push origin "$branch"
+          git push -u origin "$branch"
           echo "branch=$branch" >> "$GITHUB_ENV"
 
       - name: Open pull request (deterministic)
@@ -132,11 +140,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr create \
-            --title "주간 프로그램 정보 업데이트 $(date +%Y-%m-%d)" \
-            --body-file .github/weekly-update-summary.md \
-            --base master \
-            --head "$branch"
+          # Requires repo setting: Actions → General → Workflow permissions
+          # → "Allow GitHub Actions to create and approve pull requests"
+          existing="$(gh pr list --head "$branch" --base master --json number --jq '.[0].number')"
+          if [ -n "$existing" ]; then
+            echo "PR #$existing already exists for $branch"
+          else
+            gh pr create \
+              --title "주간 프로그램 정보 업데이트 $(date +%Y-%m-%d)" \
+              --body-file .github/weekly-update-summary.md \
+              --base master \
+              --head "$branch"
+          fi
 
       - name: No changes
         if: steps.diff.outputs.changed == 'false'
