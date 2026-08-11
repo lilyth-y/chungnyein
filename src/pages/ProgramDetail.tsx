@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getProgramById } from '../data/programs'
 import { APPLICANT_LABEL } from '../data/types'
+import { findDocumentLink } from '../data/documentLinks'
 import CategoryBadge from '../components/CategoryBadge'
 import RegionBadge from '../components/RegionBadge'
 import {
@@ -92,11 +93,35 @@ export default function ProgramDetail() {
 
         {program.documents && program.documents.length > 0 && (
           <Section icon={FileText} title="필요 서류">
-            <ul className="list-inside list-disc space-y-1 text-sm leading-relaxed text-slate-700">
-              {program.documents.map((doc) => (
-                <li key={doc}>{doc}</li>
-              ))}
+            <ul className="space-y-2 text-sm leading-relaxed text-slate-700">
+              {program.documents.map((doc) => {
+                const link = findDocumentLink(doc)
+                return (
+                  <li key={doc} className="flex flex-col gap-1 border-b border-dashed border-slate-100 pb-2 last:border-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+                    <span className="flex gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" />
+                      <span>{doc}</span>
+                    </span>
+                    {link && (
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex shrink-0 items-center gap-1 self-start rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-700 hover:bg-indigo-100 sm:self-auto"
+                        title={link.note}
+                      >
+                        <ExternalLink size={12} />
+                        {link.agency}에서 온라인 발급
+                      </a>
+                    )}
+                  </li>
+                )
+              })}
             </ul>
+            <p className="mt-3 text-xs leading-relaxed text-slate-400">
+              위 바로가기가 없는 서류(사업계획서, 임금대장, 통장사본 등)는 신청자가 직접 작성·준비해야 하는
+              서류입니다. 온라인 발급 서류도 포털 개편에 따라 화면 구성이 바뀔 수 있습니다.
+            </p>
           </Section>
         )}
 
