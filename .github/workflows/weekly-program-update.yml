@@ -1,0 +1,143 @@
+name: Weekly Program Data Update
+
+# Runs every Monday at 11:00 KST (02:00 UTC). Re-checks each program's
+# official source pages and proposes updates as a Pull Request for human
+# review — it never pushes straight to main and never deploys by itself.
+on:
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  research-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Fail fast if CURSOR_API_KEY is missing
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+        run: |
+          if [ -z "$CURSOR_API_KEY" ]; then
+            echo "::error::CURSOR_API_KEY repository secret is not set. See README for setup steps."
+            exit 1
+          fi
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Cursor CLI
+        run: |
+          curl https://cursor.com/install -fsS | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          echo "$HOME/.cursor/bin" >> "$GITHUB_PATH"
+
+      - name: Restrict agent to research + data files only
+        run: |
+          mkdir -p .cursor
+          cat > .cursor/cli.json << 'EOF'
+          {
+            "permissions": {
+              "allow": [
+                "Read(**)",
+                "Write(src/data/**)",
+                "Write(.github/weekly-update-summary.md)",
+                "WebFetch(*)",
+                "Shell(npm)",
+                "Shell(npx)",
+                "Shell(node)"
+              ],
+              "deny": [
+                "Shell(git)",
+                "Shell(gh)",
+                "Shell(rm)",
+                "Write(package.json)",
+                "Write(.github/workflows/**)",
+                "Write(.cursor/**)"
+              ]
+            }
+          }
+          EOF
+
+      - name: Run Cursor Agent to research and propose data updates
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+        run: |
+          agent -p --force --trust --output-format text "
+          You are maintaining a Korean-language web app that lists 청년 고용, 일자리 창출, 기업 지원 programs
+          (national + Gyeonggi province). The data lives in src/data/programs.ts (array of Program objects,
+          shape defined in src/data/types.ts).
+
+          Your ONLY job this run:
+          1. For every existing program, open its sources[].url with web fetch/search and verify whether
+             target/benefit/period/status/documents/contact are still accurate.
+          2. If an official source clearly shows a change (deadline extended/closed, amount changed, program
+             ended, new application cycle, etc.), update that program's fields to match the source. Cite the
+             exact source URL you used. NEVER guess or invent a fact — if you cannot verify something from an
+             official source (moel.go.kr, work24.go.kr, gg.go.kr or similar government/public domain), leave
+             the existing text unchanged and instead add/update the program's optional note field explaining
+             what is uncertain and needs human review.
+          3. You may also search for at most 2-3 clearly relevant NEW national or Gyeonggi programs in the
+             same categories (youth/jobCreation/corporate) if you find them on an official government source,
+             and append them as new Program entries with a fresh unique id (kebab-case) — but only if you are
+             confident they are real, currently active programs, with sources[] pointing at the official page.
+          4. Never change or remove the id field of an existing program (routes depend on it). Keep the
+             existing TypeScript formatting/style used in the file. Do not touch any other file besides
+             src/data/programs.ts (and src/data/types.ts only if a genuinely new field is unavoidable).
+          5. Run npm run build at the end and fix any TypeScript errors your edits introduced.
+          6. Write a concise Korean summary of every change you made (or 'no changes needed this week' if
+             nothing changed) to .github/weekly-update-summary.md as a markdown bullet list, one bullet per
+             changed/added program, each bullet stating what changed and the source URL used as evidence.
+          7. Do NOT run any git or gh commands, do NOT create branches, do NOT commit, do NOT push, do NOT
+             attempt to deploy. A separate, deterministic CI step handles all of that after you finish.
+          "
+
+      - name: Show summary
+        run: cat .github/weekly-update-summary.md 2>/dev/null || echo "No summary file was produced."
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet -- src/data; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create branch and commit (deterministic)
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          branch="weekly-update/$(date +%Y-%m-%d)"
+          git checkout -b "$branch"
+          git add src/data
+          git commit -m "chore: weekly program data review $(date +%Y-%m-%d)"
+          git push origin "$branch"
+          echo "branch=$branch" >> "$GITHUB_ENV"
+
+      - name: Open pull request (deterministic)
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --title "주간 프로그램 정보 업데이트 $(date +%Y-%m-%d)" \
+            --body-file .github/weekly-update-summary.md \
+            --base master \
+            --head "$branch"
+
+      - name: No changes
+        if: steps.diff.outputs.changed == 'false'
+        run: echo "No verified changes this week — nothing to open a PR for."
