@@ -1,0 +1,10 @@
+# 주간 프로그램 데이터 갱신 요약 (2026-08-31)
+
+- **청년일자리도약장려금**: 비수도권 기업 요건을 ‘산업단지 입주 중견기업’ → ‘중견기업’으로 수정 (고용24 제도안내: https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000117&systId=SI00000318)
+- **K-디지털 트레이닝**: 요약 문구를 AI·빅데이터 중심에서 AI·클라우드·반도체·로봇 등 첨단산업·디지털 분야로 갱신 (고용24: https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000197&systId=SI00000423)
+- **경기청년 맞춤형 채용지원 서비스**: 사업시기(2026.3.~11.)·문의처·출처를 재단·경기도청 안내 기준으로 정리, 2차(8월) 마감일 미확인 note 유지 (https://www.gjf.or.kr/main/main_biz/view.do?lclsf_sn=115&main_biz_sn=55&sclsf_sn=305 , https://www.gg.go.kr/contents/contents.do?ciIdx=987324&menuId=1534172)
+- **경기도 청년 면접수당**: 비공식 보도 출처를 경기청년포털 1차 모집 공고로 교체, note 정리 (https://youth.gg.go.kr/gg/intro/notice.do?articleNo=9808&mode=view)
+- **청년 복지포인트**: 정정공고 기준으로 모집인원 ‘추후 확정(재정 변동)’ 반영, 출처를 정정공고로 교체 (https://www.gjf.or.kr/main/pst/view.do?pst_id=notice_ap&pst_sn=202825)
+- **중소기업 청년노동자 지원사업**: 9월 모집 예정이나 접수 일정 미공고 상태를 note에 명시 (https://www.gjf.or.kr/main/main_biz/view.do?lclsf_sn=119&main_biz_sn=14&sclsf_sn=308)
+- **(신규) 고용촉진장려금**: 취약계층 채용 시 기업 인건비 지원 제도 추가 (https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000119&systId=SI00000370 , https://www.gov.kr/portal/rcvfvrSvc/dtlEx/SD0000003857)
+- **(신규) 청년도전지원사업**: 구직단념청년 맞춤 프로그램·참여수당 제도 추가 (https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000189&systId=SI00000319)
