@@ -1,0 +1,10 @@
+- `통합고용세액공제`: 적용 시기를 2026.12.31이 속하는 과세연도부터 2028.12.31이 속하는 과세연도까지로 바로잡고 계산식 기반 유의사항을 보강했습니다. 근거: https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1030017359
+- `경기청년 일자리 매치업 플러스`: 기업 단독 지원사업처럼 보이던 설명을 청년+기업 매칭형 사업으로 수정하고, 신청 주체·운영기간·문의처를 공식 사업안내 기준으로 갱신했습니다. 근거: https://www.gjf.or.kr/main/main_biz/view.do?lclsf_sn=142&main_biz_sn=57&sclsf_sn=311
+- `경기청년 맞춤형 채용지원 서비스`: 공식 사업시기(2026년 3월~11월)와 신청 경로 중심으로 정리하고, 2기 모집 게시 확인 및 회차별 마감일 재확인 필요를 `note`에 반영했습니다. 근거: https://www.gjf.or.kr/main/main_biz/view.do?lclsf_sn=115&main_biz_sn=55&sclsf_sn=305
+- `지역주도형 청년일자리사업`: 고정 연간 일정 표현을 제거하고 시·군별 공고 확인이 필요하다는 점을 공식 안내 기준으로 강화했습니다. 근거: https://youth.gg.go.kr/gg/intro/youth-policy-job-test.do?articleNo=7648&mode=view
+- `경기도 청년 면접수당`: 비공식 언론 출처를 공식 경기청년포털 1차 모집 공고로 교체하고, 모집 시기를 1차 6월 공고·2차 11월 예정으로 보수적으로 정리했습니다. 근거: https://youth.gg.go.kr/gg/intro/notice.do?articleNo=9808&mode=view
+- `경기도 청년 노동자 통장`: 모집 상태를 ‘하반기 미정’에서 ‘2026년 8월 중 모집 예정’으로 업데이트하고 세부 일정은 추후 공고 확인이 필요하다는 점을 반영했습니다. 근거: https://www.gg.go.kr/bbs/boardView.do?bIdx=226824964&bsIdx=469&menuId=1547
+- `청년 복지포인트`: 2026년 공고 기준 주 36시간·건강보험료 138,276원 이하 등 자격요건과 모집인원 추후 확정 사항을 반영했습니다. 근거: https://www.gjf.or.kr/main/pst/view.do?pst_id=notice_ap&pst_sn=202825
+- `중소기업 청년노동자 지원사업`: 공식 안내에 나온 2026년 9월 모집 예정, 주 36시간 이상, 월 급여 385만 원 이하 요건을 반영하고 세부 공고 미게시 상태를 `note`에 남겼습니다. 근거: https://www.gg.go.kr/contents/contents.do?ciIdx=1057&menuId=2737
+- `경기청년 역량강화 기회지원(어학·자격 응시료)`: 신청·거주·미취업 기준, 신청기간(2026.5~12), 제출서류를 경기도청 공식 안내에 맞춰 구체화했습니다. 근거: https://www.gg.go.kr/contents/contents.do?ciIdx=987323&menuId=1534171
+- `경기도 주 4.5일제 시범사업`: 공식 사업안내 기준으로 지원대상과 운영기간을 보수적으로 정리하고, 세부 지급 단가·접수 마감은 개별 공고문 재확인이 필요하다는 점을 `note`에 반영했습니다. 근거: https://www.gjf.or.kr/main/main_biz/view.do?lclsf_sn=3&main_biz_sn=72&sclsf_sn=314
