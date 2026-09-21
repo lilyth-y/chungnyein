@@ -1,0 +1,9 @@
+- 청년일자리도약장려금: 지원 금액·2026년 채용 기간은 유지. 비수도권 중견기업 범위가 고용24(중견기업 일반, 일부 업종 1인 이상)와 정책브리핑(산업단지 입주 중견기업)에서 달라 대상 문구는 바꾸지 않고 확인 필요 사항을 note에 적음. https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000117&systId=SI00000318
+- 예비창업패키지: 2026.3.6~3.26 접수 마감·기준일 2026.1.22는 기업마당 공고와 일치해 유지. 공고 요약에 사업화 자금 액수가 없어 금액은 그대로 두고 note에 미확인을 적음. https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000119859
+- 경기청년 맞춤형 채용지원 서비스: 재단 사업안내의 운영기간(2026.3~11월)을 note에 반영. 2차(8월) 모집 공고 원문은 확인하지 못해 일정·인원은 변경하지 않음. https://www.gjf.or.kr/main/main_biz/view.do?lclsf_sn=115&main_biz_sn=55&sclsf_sn=305
+- 경기도 청년 노동자 통장: 고시 2026-651은 8월 중 2,100명 내외 모집을 예고했으나, 운영 누리집(2026.9.21)은 15기 모집 시기·진행 여부 논의 중·규모 미정. period·target·note를 그에 맞게 수정. 만기 580만 원(현금 480만 원+지역화폐 100만 원)은 유지. https://account.gfgf.kr/main/businessGuide.do
+- 청년 복지포인트: 7.1~7.13 마감과 1년 120만 원은 유지. 재단 안내는 7월 10,000명이나 선발 결과 공고는 미확인이라 note에 적음. 7.2 공지의 지원 플러스(금융교육 9~12월, 배달특급 8~12월)를 note에 구체화. https://youth.jobaba.net/
+- 중소기업 청년노동자 지원사업: 금액(2년 480만 원)과 9월·2,000명 예정 문구는 재단 사업안내와 같아 유지. 2026년 9월 접수 공고는 찾지 못해 note에 미확인을 적음. https://www.gjf.or.kr/main/main_biz/view.do?lclsf_sn=119&main_biz_sn=14&sclsf_sn=308
+- 경기도 주 4.5일제 시범사업: 3.27 모집 마감 이후 연장·추가 공고를 찾지 못해 note에 재확인 일자만 적고 본문은 유지. https://gnews.gg.go.kr/news/news_detail.do?number=202603030958178844C052&s_code=C109
+- 청년도전지원사업: 신규 추가. 만 18~34세 구직단념청년 등, 단기 50만 원·중기 최대 220만 원·장기 최대 350만 원, 2026년 신청 1~11월. https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000189&systId=SI00000319
+- 미래내일 일경험: 신규 추가. 만 15~34세 미취업 청년·참여기업, 인턴형 주 37.5만 원 등 유형별 수당, 프로그램별 선발(청년뉴딜 기준 2026.5~11월 신청). https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000203&systId=SI00000324
