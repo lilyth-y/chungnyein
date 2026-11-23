@@ -1,0 +1,11 @@
+# 주간 프로그램 데이터 갱신 요약 (2026-11-23)
+
+- **청년일자리도약장려금**: 비수도권 기업 요건을 ‘산업단지 입주 중견기업’ → ‘중견기업’으로 수정 (고용24 제도안내: https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000117&systId=SI00000318)
+- **통합고용세액공제**: ’26~’28 연차별 공제액(청년등 수도권 700/1,600/1,700만 원 등)·추징 완화·육아휴직 복귀자 추가공제를 반영하고 국세청 안내를 출처에 추가 (https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7809&mi=2498 , https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1030017359)
+- **경기청년 맞춤형 채용지원 서비스**: 2026년 2기 모집(8.5~8.18) 마감·상담 9~11월 운영으로 period/note·출처 갱신 (https://www.gjf.or.kr/main/pst/view.do?pst_id=notice_ap&pst_sn=202899)
+- **경기도 청년 면접수당**: 1차(6.24~7.7) 모집완료, 2차 미운영으로 status=`closed` 및 period/note 갱신 (https://youth.gg.go.kr/gg/intro/notice.do?articleNo=10454&mode=view , https://www.gg.go.kr/contents/contents.do?ciIdx=987029&menuId=265937)
+- **경기도 청년 노동자 통장**: 2026 신규 모집 미운영으로 status=`closed` 및 period/note 갱신 (https://www.gg.go.kr/contents/contents.do?ciIdx=987320&menuId=1534169)
+- **청년 복지포인트**: 7.1~7.13 모집완료·추가 모집 미진행으로 status=`closed` 및 period/note 갱신 (https://www.gg.go.kr/contents/contents.do?ciIdx=1057&menuId=2737)
+- **중소기업 청년노동자 지원사업**: 2026 신규 모집 미운영으로 status=`closed` 및 period/note 갱신 (https://www.gg.go.kr/contents/contents.do?ciIdx=1057&menuId=2737 , https://youth.jobaba.net/)
+- **경기청년 역량강화 기회지원**: 접수기간을 5.11~12.4로 명확화하고 구비서류·조기마감 note 보강 (https://gnews.gg.go.kr/briefing/brief_gongbo_view.do?BS_CODE=S017&number=70231)
+- **(신규) K-뉴딜 아카데미**: 고용24·고용부 보도자료 기준 전국 청년 훈련 프로그램 추가 (https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systId=SI00000512 , https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19542)
